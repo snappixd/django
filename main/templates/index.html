@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Eagle-shop
+{% endblock %}
+
+{% block content %}
+<div class="body">
+	{% for product in products %}
+		<div class="container">
+			<div class="block_for_img">
+				{% if product.img %}
+					<img src="{{ product.img.url }}" alt="{{ product.title }}" class="img_for_container">
+				{% endif %}
+			</div>
+			<h1>{{ product.title }}</h1>
+			<p>{{ product.description|truncatechars:146 }}</p>
+			<a class="btn_price" href="{{ product.slug }}"><button class="btn btn-success">Перейти к товару</button></a>
+		</div>
+	{% endfor %}
+</div>			
+{% endblock %}
+
+
+
+
